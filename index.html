@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivan Michael | Mentalist & Illusionist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent-red: #c41230;
+      --navy: #0a1120;
+      --light-bg: #f9f8f6;
+      --dark-text: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 6vw;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-red);
+    }
+
+    .cta-btn {
+      background: var(--accent-red);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      border-radius: 3px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .cta-btn:hover {
+      background: #a30a24;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ── HERO SECTION (FULL-WIDTH, SINGLE COLUMN) ── */
+    .hero {
+      background-image: url('images/show-hall-audience.png');
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment: fixed;
+      padding: 8px 6vw 1.5rem;
+      position: relative;
+      min-height: 80vh;
+      margin-top: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(10,17,32,0.88) 0%, rgba(10,17,32,0.65) 40%, rgba(10,17,32,0.3) 70%, rgba(10,17,32,0) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      text-align: left;
+      color: white;
+      padding-top: 90px;
+    }
+
+    .hero-credentials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-credential-badge {
+      height: 40px;
+      width: auto;
+    }
+
+    .hero-credential-divider {
+      width: 1px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-credential-google {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .google-logo {
+      height: 28px;
+      width: auto;
+    }
+
+    .hero-credential-stars {
+      color: #ffc107;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
+    }
+
+    .hero-content h1 {
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.05;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent-red);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-cta:hover {
+      background: #a30a24;
+      transform: translateY(-2px);
+    }
+
+    .hero-fud {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .fud-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fud-check {
+      color: var(--accent-red);
+      font-weight: bold;
+    }
+
+    .google-review-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50px;
+      padding: 0.65rem 1.25rem;
+      width: fit-content;
+      margin-bottom: 2rem;
+    }
+
+    .google-review-stars {
+      color: #ffc107;
+      font-size: 0.9rem;
+      letter-spacing: -0.2px;
+    }
+
+    .google-review-text {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .guinness-badge {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    .guinness-badge-logo {
+      height: 70px;
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    .guinness-badge-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .guinness-badge-tagline {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+    }
+
+    .guinness-badge-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-proof {
+      display: flex;
+      justify-content: flex-start;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-badge {
+      text-align: center;
+    }
+
+    .proof-badge-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-red);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .proof-badge-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    /* ── PROOF BAR ── */
+    .proof-bar {
+      background: var(--accent-red);
+      color: white;
+      padding: 2rem 6vw;
+    }
+
+    .proof-bar-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .proof-stat {
+      text-align: center;
+    }
+
+    .proof-stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .proof-stat-label {
+      font-size: 1rem;
+      margin-top: 0.75rem;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+
+    .proof-stat-label-multi {
+      font-size: 0.95rem;
+      margin-top: 0.75rem;
+      opacity: 0.95;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .proof-stat-number-with-star {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .proof-stat-star {
+      font-size: 2.5rem;
+      color: #ffc107;
+    }
+
+    /* ── LOGO TICKER (INFINITE, SEAMLESS) ── */
+    .logo-marquee-section {
+      background: var(--light-bg);
+      padding: 3rem 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .logo-marquee-wrapper {
+      display: flex;
+      gap: 3rem;
+      animation: scroll 50s linear infinite;
+      width: fit-content;
+    }
+
+    .logo-item {
+      flex-shrink: 0;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .logo-item:hover {
+      opacity: 0.8;
+    }
+
+    .logo-item img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      max-width: 200px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
+
+    /* ── CELEBRITY TESTIMONIALS (DARK with BG) ── */
+    .celeb-section {
+      background-image: url('images/bg-crop-D-fog.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .celeb-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,17,32,0.45) 0%, rgba(10,17,32,0.35) 100%);
+      z-index: 1;
+    }
+
+    .celeb-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .celeb-section h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .celeb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .celeb-card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .celeb-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-8px);
+    }
+
+    .celeb-image {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-red);
+    }
+
+    .celeb-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .celeb-quote {
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    /* ── PAIN POINT SECTION (LIGHT) ── */
+    .pain-section {
+      background: white;
+      padding: 5rem 6vw;
+    }
+
+    .pain-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pain-section h2 {
+      margin-bottom: 2.5rem;
+    }
+
+    .pain-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .solution-list {
+      margin-top: 2rem;
+    }
+
+    .solution-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .solution-check {
+      color: var(--accent-red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── BIO SECTION (DARK with BG) ── */
+    .bio-section {
+      background-image: url('images/bg-crop-E-beams.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .bio-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,17,32,0.45) 0%, rgba(10,17,32,0.35) 100%);
+      z-index: 1;
+    }
+
+    .bio-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .bio-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid var(--accent-red);
+    }
+
+    .bio-text h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-text p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      background: rgba(196, 18, 48, 0.2);
+      border: 1px solid var(--accent-red);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── VIDEO TESTIMONIALS (DARK with BG) ── */
+    .video-testimonials-section {
+      background: var(--light-bg);
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .video-testimonials-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: none;
+      z-index: 1;
+    }
+
+    .video-testimonials-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-testimonials-section h2 {
+      text-align: center;
+      color: var(--dark-text);
+      margin-bottom: 3rem;
+    }
+
+    .video-grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .video-item {
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── VIDEO REEL (DARK) ── */
+    .video-section {
+      background-image: url('images/bg-crop-F-warm.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .video-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,17,32,0.45) 0%, rgba(10,17,32,0.35) 100%);
+      z-index: 1;
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-section h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .video-intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.05rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── GUEST REACTIONS (LIGHT) - ~9 cards with image + testimonial ── */
+    .guest-reactions {
+      background: white;
+      padding: 5rem 6vw;
+    }
+
+    .guest-reactions h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .guest-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .guest-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+    }
+
+    .guest-card:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .guest-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .guest-content {
+      padding: 2rem;
+    }
+
+    .guest-stars {
+      color: #ffc107;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .guest-quote {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    /* ── VALUE PROPS (DARK with BG) ── */
+    .value-section {
+      background-image: url('images/bg-crop-D-fog.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .value-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,17,32,0.45) 0%, rgba(10,17,32,0.35) 100%);
+      z-index: 1;
+    }
+
+    .value-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-section h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+      border-top: 4px solid var(--accent-red);
+    }
+
+    .value-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .value-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .value-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .value-bullets li {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .value-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: bold;
+    }
+
+    /* ── HOW IT WORKS (LIGHT) ── */
+    .process-section {
+      background: white;
+      padding: 5rem 6vw;
+    }
+
+    .process-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--accent-red);
+      margin-bottom: 1rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark-text);
+    }
+
+    .step-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── FINAL CTA (TWO-COLUMN: TEXT + FORM) (DARK) ── */
+    .final-section {
+      background-image: url('images/bg-crop-E-beams.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 5rem 6vw;
+      position: relative;
+    }
+
+    .final-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,17,32,0.45) 0%, rgba(10,17,32,0.35) 100%);
+      z-index: 1;
+    }
+
+    .final-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .final-text h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-bullets {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .final-bullets li {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      padding-left: 1.75rem;
+      position: relative;
+    }
+
+    .final-bullets li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .final-proof {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .final-proof-item {
+      text-align: center;
+    }
+
+    .final-proof-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-red);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .final-proof-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .final-credentials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .final-credential-badge {
+      height: 40px;
+      width: auto;
+    }
+
+    .final-credential-divider {
+      width: 1px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .final-credential-google {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .final-credential-stars {
+      color: #ffc107;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent-red);
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s;
+    }
+
+    .form-submit:hover {
+      background: #a30a24;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #000;
+      color: white;
+      padding: 2rem 6vw;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guest-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+
+      .final-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-fud {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .celeb-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guest-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-proof {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">IVAN MICHAEL</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="cta-btn">Book A Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HERO (FULL-WIDTH, SINGLE COLUMN) -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="google-review-badge">
+        <svg class="google-logo" viewBox="0 0 48 48" width="24" height="24">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19c1.33-4.02 5.3-6.91 9.46-6.91z"></path>
+          <path fill="#34A853" d="M46.98 24.55c0-1.13-.15-2.23-.34-3.31H24v6.31h13.52c-.6 2.96-2.99 5.47-6.35 7.07-1.93 1.08-4.35 1.66-7.17 1.66-.55 0-1.1-.05-1.64-.15v5.2c.96.15 1.96.24 3 .24 5.85 0 10.87-1.93 14.43-5.18 3.59-3.3 5.66-8.2 5.66-14.06 0-.55-.04-1.1-.13-1.64z"></path>
+          <path fill="#4285F4" d="M10.63 28.64c-.74 1.93-1.17 4-1.17 6.18 0 2.2.43 4.25 1.17 6.18l-7.98 6.19C2.18 38.93 0 31.58 0 24s2.18-14.93 2.65-16.19l7.98 6.19z"></path>
+          <path fill="#FBBC04" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.16 0-11.13-3.9-12.95-9.15l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+          <path fill="none" d="M0 0h48v48H0z"></path>
+        </svg>
+        <div class="google-review-stars">★★★★★</div>
+        <div class="google-review-text">Rated 5/5 • 100+ Reviews</div>
+      </div>
+
+      <h1>Make Your People Feel Seen, Valued, and Blown Away</h1>
+      <p class="hero-subtitle">Worried your event will feel like every other one? Ivan Michael is the only entertainer who combines Guinness World Record sleight of hand with fully personalized mentalism to guarantee your guests feel amazed, appreciated, and blown away.</p>
+
+      <a href="#contact" class="hero-cta">Check Availability</a>
+
+      <div class="hero-fud">
+        <div class="fud-item">
+          <span class="fud-check">✓</span>
+          <span>Money-back guarantee</span>
+        </div>
+        <div class="fud-item">
+          <span class="fud-check">✓</span>
+          <span>Preview the show</span>
+        </div>
+      </div>
+
+      <div class="guinness-badge">
+        <img src="images/guinness-logo.png" alt="Guinness World Record" class="guinness-badge-logo">
+        <div class="guinness-badge-text">
+          <p class="guinness-badge-tagline">"Officially Amazing"</p>
+          <p class="guinness-badge-label">Guinness World Records</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proof-bar">
+    <div class="proof-bar-content">
+      <div class="proof-stat">
+        <div class="proof-stat-number">1,000+</div>
+        <div class="proof-stat-label">Events</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-number">15+</div>
+        <div class="proof-stat-label">Years Performing</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-number-with-star">5<span class="proof-stat-star">★</span></div>
+        <div class="proof-stat-label">Rating</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-number">1</div>
+        <div class="proof-stat-label">World Record</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO TICKER -->
+  <section class="logo-marquee-section">
+    <div class="logo-marquee-wrapper">
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Amazon_PNG6.png" alt="Amazon"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Travelers.png" alt="Travelers"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/ubs_arena_semibold_3c.png" alt="UBS Arena"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Suffolk OTB.png" alt="Suffolk OTB"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Logo_New_York_Islanders.svg.png" alt="New York Islanders"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Jake_s 58.png" alt="Jake's 58"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/greek_rep_logo.jpeg" alt="Greek Rep"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Beekley.png" alt="Bickley Medical"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/CompanyLogos_nassau veterans memorial coliseum.webp" alt="Nassau Coliseum"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Cadent_Logo_RGB_2C Positive@4x.png" alt="Cadent"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/angelas-house-logo.png" alt="Angela's House"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/ColdTrack-Logo_black-clear-background.png" alt="ColdTrack"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/davita-logo-png-transparent.png" alt="DaVita"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/eac-logo-450.png" alt="EAC"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/dave & busters logo.png" alt="Dave & Busters"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/logo-brandywine.png" alt="Brandywine"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/umr_logo-1.png" alt="UMR"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/the-plaza-at-clover-lake-logo.png" alt="The Plaza"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Amazon_PNG6.png" alt="Amazon"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Travelers.png" alt="Travelers"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/ubs_arena_semibold_3c.png" alt="UBS Arena"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Suffolk OTB.png" alt="Suffolk OTB"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Logo_New_York_Islanders.svg.png" alt="New York Islanders"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Jake_s 58.png" alt="Jake's 58"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/greek_rep_logo.jpeg" alt="Greek Rep"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Beekley.png" alt="Bickley Medical"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/CompanyLogos_nassau veterans memorial coliseum.webp" alt="Nassau Coliseum"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/Cadent_Logo_RGB_2C Positive@4x.png" alt="Cadent"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/angelas-house-logo.png" alt="Angela's House"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/ColdTrack-Logo_black-clear-background.png" alt="ColdTrack"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/davita-logo-png-transparent.png" alt="DaVita"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/eac-logo-450.png" alt="EAC"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/dave & busters logo.png" alt="Dave & Busters"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/logo-brandywine.png" alt="Brandywine"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/umr_logo-1.png" alt="UMR"></div>
+      <div class="logo-item"><img src="images/CORPORATE LOGOS 2/the-plaza-at-clover-lake-logo.png" alt="The Plaza"></div>
+    </div>
+  </section>
+
+  <!-- CELEBRITY TESTIMONIALS (DARK) -->
+  <section class="celeb-section">
+    <div class="celeb-content">
+      <h2>Trusted by A-List Celebrities</h2>
+      <div class="celeb-grid">
+        <div class="celeb-card">
+          <img src="images/celeb-uma-thurman.png" alt="Uma Thurman" class="celeb-image">
+          <div class="celeb-name">Uma Thurman</div>
+          <p class="celeb-quote">"Ivan Michael's performance was extraordinary. The way he reads people and personalizes every moment is truly unique."</p>
+        </div>
+        <div class="celeb-card">
+          <img src="images/celeb-lady-gaga.png" alt="Lady Gaga" class="celeb-image">
+          <div class="celeb-name">Lady Gaga</div>
+          <p class="celeb-quote">"One of the most amazing performances I've ever witnessed. Ivan is a true master of his craft."</p>
+        </div>
+        <div class="celeb-card">
+          <img src="images/celeb-tank-davis.png" alt="Gervonta Davis" class="celeb-image">
+          <div class="celeb-name">Gervonta Davis</div>
+          <p class="celeb-quote">"Ivan blew my mind. Every single moment felt personal and electric. You have to see this."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINT (LIGHT) -->
+  <section class="pain-section">
+    <div class="pain-content">
+      <h2>Your Group Deserves More Than a Show. They Deserve a Moment They Never Forget.</h2>
+
+      <p class="pain-text">Do you spend months planning an event only to watch guests check their phones all night? Have you hired entertainment before that got polite applause and nothing more? Are you tired of being responsible when the night just does not land?</p>
+
+      <p class="pain-text">You are not alone. And it is not your fault.</p>
+
+      <p class="pain-text">Most entertainment performs AT your guests instead of WITH them. Generic acts get generic results.</p>
+
+      <p class="pain-text">You do not need a bigger budget or a fancier venue. You need a performer who builds the entire show around YOUR group.</p>
+
+      <p class="pain-text"><strong>Ivan Michael is a Guinness World Record mentalist with 30 years of live performance experience.</strong> Every show is fully customized, 100% interactive, and backed by a satisfaction guarantee. In 30 years, he has never once been asked for a refund.</p>
+
+      <div class="solution-list">
+        <div class="solution-item">
+          <span class="solution-check">✔</span>
+          <span>Every guest gets a personal moment in the show</span>
+        </div>
+        <div class="solution-item">
+          <span class="solution-check">✔</span>
+          <span>The room fills with real laughs, real gasps, and real energy</span>
+        </div>
+        <div class="solution-item">
+          <span class="solution-check">✔</span>
+          <span>You walk away looking like the hero who made it all happen</span>
+        </div>
+      </div>
+
+      <p class="pain-text" style="margin-top: 2rem; font-weight: 600;">Uma Thurman called it great. Lady Gaga called it amazing. Your guests deserve that same experience.</p>
+    </div>
+  </section>
+
+  <!-- BIO SECTION (DARK) -->
+  <section class="bio-section" id="about">
+    <div class="bio-content">
+      <div class="bio-grid">
+        <div>
+          <img src="images/hs-4019.png" alt="Ivan Michael" class="bio-image">
+        </div>
+        <div class="bio-text">
+          <h2>30 Years. One Obsession. Zero Refunds.</h2>
+          <p>Ivan Michael didn't start as an entertainer—he started as an obsessive. For three decades, he's studied the intersection of psychology, performance, and human connection. That obsession has led to breakthrough moments at the world's most exclusive venues, private events for Fortune 500 companies, and a track record that speaks for itself.</p>
+          <p>Every show is built from scratch. No two are ever the same. Because Ivan believes your event deserves a moment that's completely, uniquely yours.</p>
+          <div class="badge-row">
+            <div class="badge">🏆 Guinness World Record</div>
+            <div class="badge">30+ Years</div>
+            <div class="badge">1,000+ Events</div>
+            <div class="badge">Zero Refunds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO TESTIMONIALS (LIGHT) - 2x2 grid -->
+  <section class="video-testimonials-section">
+    <div class="video-testimonials-content">
+      <h2>Real Guests. Real Reactions. Real Magic.</h2>
+      <div class="video-grid-2x2">
+        <div class="video-item">
+          <video controls>
+            <source src="images/cold.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video controls>
+            <source src="images/Hampton Watercraft.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video controls>
+            <source src="images/greekrep.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video controls>
+            <source src="images/hangry goose.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO REEL (DARK) -->
+  <section class="video-section">
+    <div class="video-content">
+      <h2>Watch Your Guests Leave Amazed & Talking About It for Months</h2>
+      <p class="video-intro">See how Ivan creates unforgettable moments at real events</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/RJSnXSgt3G4" title="Ivan Michael Performance Reel" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUEST REACTIONS (LIGHT) - ~9 cards with image + testimonial -->
+  <section class="guest-reactions">
+    <h2>Your Guests Will Feel Like the Star of the Show</h2>
+    <div class="guest-grid">
+      <div class="guest-card">
+        <img src="images/mingling-gala-2103.jpg" alt="Gala event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"The energy in the room was electric. Everyone left feeling like they were part of something special."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-holiday-office.jpg" alt="Holiday party" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Best holiday party we've ever thrown. Guests are already asking when Ivan's coming back."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/mingling-img7213.jpg" alt="Corporate event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"This is the kind of entertainment that makes your event unforgettable. Highly recommend!"</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-5629.jpg" alt="Show performance" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Guests are still talking about it weeks later. Best investment in our event ever."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-coldtrack-237.png" alt="ColdTrack event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"The personalization was incredible. It felt like Ivan knew everyone in the room."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/mingling-vf23491.png" alt="VIP event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Worth every penny. Our guests felt valued, entertained, and amazed all night long."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-6521.jpg" alt="Private event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Ivan brought energy and precision that elevated our entire event to something special."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-xmas-party.png" alt="Christmas event" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Most professional booking experience. Ivan made everything effortless from start to finish."</p>
+        </div>
+      </div>
+      <div class="guest-card">
+        <img src="images/show-5701.jpg" alt="Stage performance" class="guest-image">
+        <div class="guest-content">
+          <div class="guest-stars">★★★★★</div>
+          <p class="guest-quote">"Every guest felt personally included. That's what separates Ivan from every other act."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPS / WHY CHOOSE IVAN (DARK) - More benefit-driven -->
+  <section class="value-section">
+    <div class="value-content">
+      <h2>Why Your Event Needs Ivan Michael</h2>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-icon">✨</div>
+          <h3>Not Just Magic. A Full Variety Experience That Keeps Every Guest Hooked All Night</h3>
+          <ul class="value-bullets">
+            <li>Guinness World Record sleight of hand unlike anything your guests have seen before</li>
+            <li>Live mentalism that reveals thoughts, predictions, and impossible secrets from the audience</li>
+            <li>Full magic illusions that create genuine gasps and lasting memories</li>
+            <li>Comedy-driven performance that keeps the room laughing from start to finish</li>
+            <li>Audience participation woven throughout so every guest gets their own moment</li>
+          </ul>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📋</div>
+          <h3>Everything You Need to Make the Event a Success, Before, During, and After the Night</h3>
+          <ul class="value-bullets">
+            <li>Custom show guidelines including seating charts and room layout recommendations</li>
+            <li>A custom promotional video to build excitement before the event</li>
+            <li>Ready-to-use social media post templates and flyer assets</li>
+            <li>A professional videographer on-site capturing every moment live</li>
+            <li>A post-show playbook with tips on how to keep the buzz going after the event</li>
+            <li>A full set of high-quality event photos delivered after the night</li>
+            <li>A professionally edited highlight reel your team will want to share everywhere</li>
+          </ul>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">❤️</div>
+          <h3>A Show Built Around Your People So Every Guest Feels Seen, Valued, and Appreciated</h3>
+          <ul class="value-bullets">
+            <li>Show tailored to your audience, your industry, and your event goals</li>
+            <li>VIP moments built in so key guests, executives, or honorees feel celebrated</li>
+            <li>Custom touches that reflect your brand, your team, or your occasion</li>
+            <li>Every guest walks away feeling personally included, not just part of a crowd</li>
+            <li>The kind of experience that makes people say "how did he know that about us?"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (LIGHT) -->
+  <section class="process-section" id="process">
+    <div class="process-content">
+      <h2>Getting Your Guests an Unforgettable Experience Is Easier Than You Think</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">📋</div>
+          <div class="step-title">Inquiry</div>
+          <p class="step-description">Tell us about your event. Date, group size, vibe. Takes 2 minutes.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">📞</div>
+          <div class="step-title">Discovery Call</div>
+          <p class="step-description">A quick conversation with Ivan. See if it is a fit, get a custom plan.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">✨</div>
+          <div class="step-title">Show Day</div>
+          <p class="step-description">Ivan handles everything. You take the credit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA (TWO-COLUMN: TEXT + FORM) (DARK) -->
+  <section class="final-section" id="contact">
+    <div class="final-content">
+      <div>
+        <h2>Make Your People Feel Seen, Valued, and Blown Away</h2>
+        <ul class="final-bullets">
+          <li>Every guest gets a personal moment in the show</li>
+          <li>Your event becomes unforgettable and worth talking about</li>
+          <li>You look like the hero who made it all happen</li>
+          <li>Fully customized show built around your specific group</li>
+          <li>Zero financial risk with our satisfaction guarantee</li>
+        </ul>
+        <div class="final-credentials">
+          <img src="images/guinness-logo.png" alt="Guinness World Record" class="final-credential-badge">
+          <div class="final-credential-divider"></div>
+          <div class="final-credential-google">
+            <svg class="google-logo" viewBox="0 0 48 48" width="32" height="32">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19c1.33-4.02 5.3-6.91 9.46-6.91z"></path>
+              <path fill="#34A853" d="M46.98 24.55c0-1.13-.15-2.23-.34-3.31H24v6.31h13.52c-.6 2.96-2.99 5.47-6.35 7.07-1.93 1.08-4.35 1.66-7.17 1.66-.55 0-1.1-.05-1.64-.15v5.2c.96.15 1.96.24 3 .24 5.85 0 10.87-1.93 14.43-5.18 3.59-3.3 5.66-8.2 5.66-14.06 0-.55-.04-1.1-.13-1.64z"></path>
+              <path fill="#4285F4" d="M10.63 28.64c-.74 1.93-1.17 4-1.17 6.18 0 2.2.43 4.25 1.17 6.18l-7.98 6.19C2.18 38.93 0 31.58 0 24s2.18-14.93 2.65-16.19l7.98 6.19z"></path>
+              <path fill="#FBBC04" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.16 0-11.13-3.9-12.95-9.15l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+              <path fill="none" d="M0 0h48v48H0z"></path>
+            </svg>
+            <span class="final-credential-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date" required>
+        </div>
+        <div class="form-group">
+          <label>Guest Count</label>
+          <input type="number" placeholder="Number of guests" required>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Your Event</label>
+          <textarea placeholder="Event type, vibe, any special requests..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Ivan Michael | Mentalist & Illusionist | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Form submission handling
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        // Log to console for verification
+        console.log('Form submitted:', data);
+
+        // Simulate form submission success
+        const button = this.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        button.textContent = 'Inquiry Sent!';
+        button.style.background = '#4caf50';
+
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.background = 'var(--accent-red)';
+          this.reset();
+        }, 3000);
+      });
+    });
+
+    // Smooth scroll navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

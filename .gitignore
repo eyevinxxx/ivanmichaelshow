@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+*.mp4
+ivan-michael-magician.html
+design-system.html
+magician-homepage-divi.json
+magician-homepage.html
+prompts.html
+generate_divi.py
+.claude/
+*.code-workspace
